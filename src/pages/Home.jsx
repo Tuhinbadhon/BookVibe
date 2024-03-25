@@ -1,8 +1,7 @@
-import Nav from "../components/Nav";
 const Home = () => {
   return (
-    <div className="lg:mx-28 lg:mt-12 mx-3">
-      <Nav />
+    <div>
+      <h1>this is homepage</h1>
     </div>
   );
 };

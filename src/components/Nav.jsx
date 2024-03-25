@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 
 const Nav = () => {
   const [theme, setTheme] = useState("light");
@@ -42,48 +43,110 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm  dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-[#23BE0A] font-bold   " : "font-normal"
+              }
+            >
               <a>Home</a>
-            </li>
-            <li>
+            </NavLink>
+            <NavLink
+              to="/listed_books"
+              className={({ isActive }) =>
+                isActive ? "text-[#23BE0A] font-bold   " : "font-normal"
+              }
+            >
               <a>Listed Books</a>
-            </li>
+            </NavLink>
 
-            <li>
+            <NavLink
+              to="/pages_to_read"
+              className={({ isActive }) =>
+                isActive ? "text-[#23BE0A] font-bold   " : "font-normal"
+              }
+            >
               <a>Pages to Read</a>
-            </li>
-            <li>
-              <a className="text-primary">Blogs</a>
-            </li>
-            <li>
+            </NavLink>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                isActive ? "text-[#23BE0A] font-bold   " : "font-normal"
+              }
+            >
+              <a>Blogs</a>
+            </NavLink>
+            <NavLink
+              to="/bookmarks"
+              className={({ isActive }) =>
+                isActive ? "text-[#23BE0A] font-bold   " : "font-normal"
+              }
+            >
               <a>Bookmarks</a>
-            </li>
+            </NavLink>
           </ul>
         </div>
-        <a className=" pl-0 text-xl font-bold text-secondary btn-ghost ">
-          Book <span className="text-primary">Vibe</span>
-        </a>
+        <Link to="/">
+          <a className=" pl-0 text-xl font-bold text-[#59C6D2]  ">
+            Book <span className="text-[#23BE0A]">Vibe</span>
+          </a>
+        </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal  px-1">
-          <li>
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu menu-horizontal items-center  flex gap-4 px-1">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#23BE0A] font-bold border border-solid bg-green-50 border-[#23BE0A] px-3 py-2 rounded-lg"
+                : "font-normal"
+            }
+          >
             <a>Home</a>
-          </li>
-          <li>
+          </NavLink>
+          <NavLink
+            to="/listed_books"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#23BE0A] font-bold border border-solid bg-green-50 border-[#23BE0A] px-3 py-2 rounded-lg"
+                : "font-normal"
+            }
+          >
             <a>Listed Books</a>
-          </li>
+          </NavLink>
 
-          <li>
+          <NavLink
+            to="/pages_to_read"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#23BE0A] font-bold border px-3 border-solid bg-green-50 border-[#23BE0A] py-2 rounded-lg"
+                : "font-normal"
+            }
+          >
             <a>Pages to Read</a>
-          </li>
-          <li>
-            <a className="text-primary">Blogs</a>
-          </li>
-          <li>
+          </NavLink>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#23BE0A] font-bold border px-3 py-2 border-solid bg-green-50 border-[#23BE0A] rounded-lg"
+                : "font-normal"
+            }
+          >
+            <a>Blogs</a>
+          </NavLink>
+          <NavLink
+            to="bookmarks"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#23BE0A] font-bold border border-solid border-[#23BE0A] bg-green-50 px-3 py-2 rounded-lg"
+                : "font-normal"
+            }
+          >
             <a>Bookmarks</a>
-          </li>
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end gap-2 lg:gap-4">
@@ -96,8 +159,8 @@ const Nav = () => {
           <svg
             className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
             xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -111,8 +174,8 @@ const Nav = () => {
           <svg
             className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
             xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -123,10 +186,10 @@ const Nav = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] max-[450px]:text-xs rounded-lg  ">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] font-semibold max-[450px]:text-xs rounded-lg text-white  ">
           Sign In
         </button>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] max-[450px]:text-xs rounded-lg  ">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] font-semibold max-[450px]:text-xs rounded-lg  text-white ">
           Sign Up
         </button>
       </div>
