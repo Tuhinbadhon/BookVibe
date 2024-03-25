@@ -1,10 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
-import Blogs from "../pages/Blogs";
-import Bookmarks from "../pages/Bookmarks";
-import Home from "../pages/Home";
-import ListedBooks from "../pages/ListedBooks";
-import PagesToRead from "../pages/PagesToRead";
 
 const MainLayout = () => {
   return (
