@@ -1,9 +1,11 @@
 import Banner from "../components/Banner";
+import Books from "../components/Books";
 
 const Home = () => {
   return (
-    <div className="lg:mx-28 lg:mt-12 mx-4 mt-3">
+    <div className="lg:mx-28 lg:mt-12 mx-4 lg:mb-24 mt-3">
       <Banner />
+      <Books />
     </div>
   );
 };

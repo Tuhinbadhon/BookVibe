@@ -3,13 +3,17 @@ const Banner = () => {
   return (
     <div>
       <div className="hero rounded-3xl py-4 lg:py-20 bg-base-200">
-        <div className="hero-content flex justify-between gap-5   lg:gap-24  lg:flex-row">
+        <div className="hero-content flex justify-between gap-5 lg:px-20  lg:gap-20  lg:flex-row">
           <div className=" ">
-            <h1 className="lg:text-5xl  font-bold">
-              Books to Freshen <br /> Up Your Bookshelf
+            <h1 className="lg:text-5xl   font-bold">
+              Indeed we belong to{" "}
+              <span className="bg-gradient-to-r from-[#23BE0A] to-gray-700 text-transparent bg-clip-text">
+                Allah
+              </span>
+              , and indeed to Him we will return
             </h1>
 
-            <button className="btn lg:mt-12 mt-3 text-white bg-[#23BE0A] ">
+            <button className="px-3 py-2 lg:px-6 lg:py-3 rounded-lg lg:mt-12 mt-3 text-white bg-[#23BE0A] ">
               View The List
             </button>
           </div>
