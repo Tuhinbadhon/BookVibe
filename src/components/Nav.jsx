@@ -123,10 +123,10 @@ const Nav = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] text-sm rounded-lg ">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] max-[450px]:text-xs rounded-lg  ">
           Sign In
         </button>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] text-sm rounded-lg ">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] max-[450px]:text-xs rounded-lg  ">
           Sign Up
         </button>
       </div>
