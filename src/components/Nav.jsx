@@ -18,7 +18,7 @@ const Nav = () => {
   };
   return (
     <div className="navbar bg-base-100   lg:sticky flex gap-0 justify-between  lg:z-10">
-      <div className="navbar-start lg:w-1/3 w-auto ">
+      <div className="navbar-start  lg:w-1/3 w-auto ">
         <div className="dropdown ">
           <div
             tabIndex={0}
@@ -62,7 +62,7 @@ const Nav = () => {
             </li>
           </ul>
         </div>
-        <a className=" pl-0 font-bold text-secondary btn-ghost text-2xl">
+        <a className=" pl-0 text-xl font-bold text-secondary btn-ghost ">
           Book <span className="text-primary">Vibe</span>
         </a>
       </div>
@@ -123,10 +123,10 @@ const Nav = () => {
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </label>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] text-sm rounded-lg text-white">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#23BE0A] text-sm rounded-lg ">
           Sign In
         </button>
-        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] text-sm rounded-lg text-white">
+        <button className=" px-3 py-2 lg:px-6 lg:py-3 bg-[#59C6D2] text-sm rounded-lg ">
           Sign Up
         </button>
       </div>
