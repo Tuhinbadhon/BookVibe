@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <div className="bg-gradient-to-b from-green-100 via-amber-50 to-transparent bg-opacity-5 py-5 lg:py-14 lg:mt-20 mt-5 lg:px-32 px-5">
+      <div className="bg-gradient-to-b from-green-100 via-amber-100 to-transparent bg-opacity-5 py-5 lg:py-14 lg:mt-20 mt-5 lg:px-32 px-5">
         <div className="">
           <a href="" className="flex justify-center items-center mb-4">
             <span className=" text-4xl font-bold max-[450px]:text-2xl bg-gradient-to-r from-green-500 to-[#59C6D2] text-transparent bg-clip-text">

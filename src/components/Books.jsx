@@ -29,7 +29,7 @@ const Books = () => {
           onClick={() => setBookLength(books.length)}
           className="px-3 py-2 lg:px-6 lg:py-3 rounded-lg lg:mt-12 mt-3 text-white bg-[#23BE0A]"
         >
-          Show All Books
+          See More
         </button>
       </div>
     </div>
