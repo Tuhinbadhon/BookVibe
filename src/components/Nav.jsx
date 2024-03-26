@@ -12,7 +12,7 @@ const Nav = () => {
     [theme];
   const handleToogle = (e) => {
     if (e.target.checked) {
-      setTheme("synthwave");
+      setTheme("luxury");
     } else {
       setTheme("light");
     }
