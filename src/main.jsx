@@ -8,6 +8,7 @@ import MainLayout from "./layouts/MainLayout.jsx";
 import Home from "./pages/Home.jsx";
 import ListedBooks from "./pages/ListedBooks.jsx";
 import PagesToRead from "./pages/PagesToRead.jsx";
+import BookDetails from "./components/BookDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/bookmarks",
         element: <Bookmarks />,
+      },
+      {
+        path: "/book/:id",
+        element: <BookDetails />,
+        loader: () => fetch("../db.json"),
       },
     ],
   },

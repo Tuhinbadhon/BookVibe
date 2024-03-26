@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 const Book = ({ book }) => {
-  const { image, bookName, author, category, rating, tags } = book;
+  const { bookId, image, bookName, author, category, rating, tags } = book;
   const [tag1, tag2] = tags.slice(0, 2);
   return (
-    <div>
+    <a href={`/book/${bookId}`} className="block">
       <div className="card rounded-2xl h-full  bg-base-100 p-5 border">
         <figure className=" rounded-2xl  bg-[#F3F3F3]">
           <img src={image} alt="Shoes" className="max-w-80  max-h-56 p-6" />
@@ -45,7 +45,7 @@ const Book = ({ book }) => {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
