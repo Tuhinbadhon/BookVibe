@@ -13,11 +13,13 @@ import Content from "./components/Content.jsx";
 import Author from "./components/Author.jsx";
 import Blog from "./pages/Blog.jsx";
 import { Toaster } from "react-hot-toast";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true /* or path:'/' */,
