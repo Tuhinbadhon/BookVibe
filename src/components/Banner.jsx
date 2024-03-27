@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/banner.png";
 const Banner = () => {
   return (
@@ -13,9 +14,11 @@ const Banner = () => {
               , and indeed to Him we will return
             </h1>
 
-            <button className="px-3 py-2 lg:px-6 lg:py-3 rounded-lg lg:mt-12 mt-3 text-white bg-[#23BE0A] ">
-              View The List
-            </button>
+            <Link to={`/listed_books`}>
+              <button className="px-3 py-2 lg:font-bold lg:px-6 lg:py-3 rounded-lg lg:mt-12 mt-3 text-white bg-[#23BE0A] ">
+                View The List
+              </button>
+            </Link>
           </div>
 
           <img

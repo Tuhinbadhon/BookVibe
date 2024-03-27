@@ -24,9 +24,9 @@ const BookDetails = () => {
               {book.bookName}
             </h2>
             <p className="border-b py-4 font-medium">By: {book.author}</p>
-            <p className="border-b py-4">{book.category}</p>
+            <p className="border-b font-medium py-4">{book.category}</p>
             <p className="lg:max-w-[555px] lg:mb-7 mb-3 mt-3 lg:mt-6">
-              <span className="font-bold">Review:</span>
+              <span className="font-bold">Review: </span>
               {book.review}
             </p>
             <div className="flex items-center border-b pb-6 mb-2">
