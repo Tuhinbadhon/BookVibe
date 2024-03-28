@@ -1,11 +1,24 @@
 import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
 import Loader from "../components/Loader";
-const Blogs = () => {
-  const navigation = useNavigation();
+import { useState, useEffect } from "react";
 
+const Blogs = () => {
   const blogs = useLoaderData();
-  if (navigation.state === "loading") return <Loader />;
+  const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(true); // State to manage loading status
+
+  useEffect(() => {
+    // Simulate a 1-second loader delay
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout); // Cleanup function
+  }, []);
+
+  if (isLoading || navigation.state === "loading") return <Loader />;
+
   return (
     <section className="  lg:mx-28 lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
       <div className="container max-w-6xl py-6 mx-auto space-y-6 sm:space-y-12">

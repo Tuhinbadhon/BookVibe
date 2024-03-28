@@ -7,11 +7,11 @@ const Banner = () => {
         <div className="hero-content flex justify-between gap-5 lg:px-20  lg:gap-20  lg:flex-row">
           <div className=" ">
             <h1 className="lg:text-5xl   font-bold">
-              Indeed we belong to{" "}
               <span className="bg-gradient-to-r from-[#23BE0A] to-gray-700 text-transparent bg-clip-text">
-                Allah
+                Read,
               </span>
-              , and indeed to Him we will return
+              Read in the name of thy Lord who created the human being from
+              blood clot.
             </h1>
 
             <Link to={`/listed_books`}>

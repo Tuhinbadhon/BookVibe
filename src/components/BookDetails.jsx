@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveBook, saveWishBook } from "../utils";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -6,6 +7,13 @@ const BookDetails = () => {
   const idInt = parseInt(id);
   const book = books.find((book) => book.bookId === idInt);
   const [tag1, tag2] = book.tags.slice(0, 2);
+  const handleReadlist = (book) => {
+    saveBook(book);
+  };
+  const handleWishList = (book) => {
+    console.log("clicked");
+    saveWishBook(book);
+  };
   return (
     <div className="lg:mx-28  lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
       <div>
@@ -59,10 +67,16 @@ const BookDetails = () => {
               </div>
             </div>
             <div className="flex gap-4 mt-8">
-              <button className="lg:px-7 lg:py-4 px-5 py-2 font-semibold border border-solid border-[#59C6D2] rounded-lg">
+              <button
+                onClick={() => handleReadlist(book)}
+                className="lg:px-7 lg:py-4 px-5 py-2 font-semibold border border-solid border-[#59C6D2] rounded-lg"
+              >
                 Read
               </button>
-              <button className="lg:px-7 lg:py-4 px-5 py-2 font-semibold border border-solid text-white bg-[#50B1C9] border-[#59C6D2] rounded-lg">
+              <button
+                onClick={() => handleWishList(book)}
+                className="lg:px-7 lg:py-4 px-5 py-2 font-semibold border border-solid text-white bg-[#50B1C9] border-[#59C6D2] rounded-lg"
+              >
                 Wishlist
               </button>
             </div>

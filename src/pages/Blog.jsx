@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import { MdBookmarkAdd } from "react-icons/md";
 import { saveBlog } from "../utils";
+import Loader from "../components/Loader";
+
 const Blog = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [tabIndex, setTabIndex] = useState(0);
   const blog = useLoaderData();
   const {
@@ -12,9 +15,21 @@ const Blog = () => {
     public_reactions_count,
   } = blog;
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   const handleBookmark = (blog) => {
     saveBlog(blog);
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="max-w-3xl px-6 py-16 mx-auto space-y-12 overflow-hidden">
