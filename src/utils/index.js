@@ -25,7 +25,6 @@ export const deleteBlog = (id) => {
   localStorage.setItem("blogs", JSON.stringify(remaining));
   toast.success("Blog Removed from Bookmark!");
 };
-
 export const getBooks = () => {
   let books = [];
   const storedBooks = localStorage.getItem("books");
@@ -34,36 +33,47 @@ export const getBooks = () => {
   }
   return books;
 };
-export const saveBook = (book) => {
-  let books = getBooks() || [];
-
-  const isExist = books.find((b) => b.bookId === book.bookId);
-  if (isExist) {
-    return toast.error("Book already exists!");
-  }
-
-  books.push(book);
-  localStorage.setItem("books", JSON.stringify(books));
-  toast.success("Book added successfully!");
-};
 
 export const getWishBooks = () => {
   let books = [];
-  const storedBooks = localStorage.getItem("books");
+  const storedBooks = localStorage.getItem("wishBooks");
   if (storedBooks) {
     books = JSON.parse(storedBooks);
   }
   return books;
 };
-export const saveWishBook = (wishBooks) => {
-  let books = getBooks() || [];
 
-  const isExist = books.find((b) => b.bookId === wishBooks.bookId);
+export const saveBook = (book) => {
+  let books = getBooks() || [];
+  let wishBooks = getWishBooks() || [];
+
+  const isExist = books.find((b) => b.bookId === book.bookId);
+  const isWishExist = wishBooks.find((b) => b.bookId === book.bookId);
+
   if (isExist) {
-    return toast.error("Book already exists!");
+    return toast.error("Book already exists in read list!");
   }
 
-  books.push(wishBooks);
+  if (isWishExist) {
+    wishBooks = wishBooks.filter((b) => b.bookId !== book.bookId);
+    localStorage.setItem("wishBooks", JSON.stringify(wishBooks));
+    toast.error("Book removed from wishlist!");
+  }
+
+  books.push(book);
   localStorage.setItem("books", JSON.stringify(books));
-  toast.success("Book added successfully!");
+  toast.success("Book added to read list successfully!");
+};
+
+export const saveWishBook = (wishBook) => {
+  let wishBooks = getWishBooks() || [];
+
+  const isExist = wishBooks.find((b) => b.bookId === wishBook.bookId);
+  if (isExist) {
+    return toast.error("Book already exists in wishlist!");
+  }
+
+  wishBooks.push(wishBook);
+  localStorage.setItem("wishBooks", JSON.stringify(wishBooks));
+  toast.success("Book added to wishlist successfully!");
 };

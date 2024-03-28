@@ -1,0 +1,11 @@
+.chart-container {
+  width: 100%;
+  max-width: 1100px; /* Optional: Set a maximum width */
+  margin: 0 auto; /* Optional: Center the chart */
+}
+
+@media screen and (max-width: 768px) {
+  .chart-container {
+    max-width: 90%; /* Adjust max-width for smaller screens */
+  }
+}

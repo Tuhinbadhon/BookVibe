@@ -3,7 +3,8 @@ import { RiMapPinLine } from "react-icons/ri";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-const ReadBooksCard = ({ book }) => {
+
+const WishBooksCard = ({ book }) => {
   const {
     bookId,
     image,
@@ -95,4 +96,4 @@ const ReadBooksCard = ({ book }) => {
   );
 };
 
-export default ReadBooksCard;
+export default WishBooksCard;
