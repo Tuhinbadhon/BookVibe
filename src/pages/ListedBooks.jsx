@@ -7,7 +7,6 @@ import { getBooks, getWishBooks } from "../utils";
 import ReadBooksCard from "../components/ReadBooksCard";
 import WishBooksCard from "../components/WishBooksCard";
 // Import the ChartGraph component
-import ChartGraph from "../components/ChartGraph";
 
 const ListedBooks = () => {
   const [books, setBooks] = useState([]);
@@ -71,7 +70,6 @@ const ListedBooks = () => {
           <TabList>
             <Tab>Read Books</Tab>
             <Tab>Wishlist Books</Tab>
-            <Tab>Pages to Read</Tab> {/* Add a new Tab */}
           </TabList>
           <TabPanel>
             <div>
@@ -86,10 +84,6 @@ const ListedBooks = () => {
                 <WishBooksCard key={book.bookId} book={book} />
               ))}
             </div>
-          </TabPanel>
-          <TabPanel>
-            <ChartGraph readBooks={books} />{" "}
-            {/* Render the ChartGraph component here */}
           </TabPanel>
         </Tabs>
       </div>

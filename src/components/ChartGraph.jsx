@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-no-undef */
-// components/PagesToRead.jsx
-import "./ChartGraph.css";
-
 import { useEffect, useState } from "react";
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 import Loader from "../components/Loader";
+import { scaleOrdinal } from "d3-scale";
+import { schemeCategory10 } from "d3-scale-chromatic";
+import { getBooks } from "../utils";
 
-const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+const colors = scaleOrdinal(schemeCategory10).range();
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
@@ -26,51 +33,43 @@ const TriangleBar = (props) => {
   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
 };
 
-const ChartGraph = ({ readBooks }) => {
+const ChartGraph = () => {
+  const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timeout);
+    const savedBooks = getBooks();
+    setBooks(savedBooks);
+    setIsLoading(false);
   }, []);
-
+  console.log(books);
   if (isLoading) return <Loader />;
-
-  const pagesData = readBooks.map((book) => ({
-    name: book.bookName,
-    totalPages: book.totalPages,
-  }));
 
   return (
     <div className="">
-      <BarChart
-        className="chart-container"
-        width={1100}
-        height={500}
-        data={pagesData}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Bar
-          dataKey="totalPages"
-          fill="#8884d8"
-          shape={<TriangleBar />}
-          label={{ position: "top" }}
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart
+          data={books}
+          margin={{ top: 20, right: 5, left: 0, bottom: 5 }}
         >
-          {pagesData.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-          ))}
-        </Bar>
-      </BarChart>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="bookName" className="text-xs " />
+          <YAxis />
+          <Bar
+            dataKey="totalPages"
+            fill="#8884d8"
+            shape={<TriangleBar />}
+            label={{ position: "top" }}
+          >
+            {books.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={colors[index % colors.length]}
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

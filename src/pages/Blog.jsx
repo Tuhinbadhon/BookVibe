@@ -18,7 +18,7 @@ const Blog = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
