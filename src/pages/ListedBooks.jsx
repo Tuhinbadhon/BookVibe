@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import { getBooks, getWishBooks } from "../utils";
 import ReadBooksCard from "../components/ReadBooksCard";
 import WishBooksCard from "../components/WishBooksCard";
+import { Helmet } from "react-helmet-async";
 // Import the ChartGraph component
 
 const ListedBooks = () => {
@@ -48,6 +49,7 @@ const ListedBooks = () => {
 
   return (
     <div className="lg:mx-28 lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
+      <Helmet title="Listed Books" />
       <div className="flex border justify-center py-3 lg:py-8 rounded-2xl font-bold text-2xl bg-[#1313130D]">
         <h1>Books</h1>
       </div>

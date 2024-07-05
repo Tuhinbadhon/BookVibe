@@ -36,11 +36,18 @@ const TriangleBar = (props) => {
 const ChartGraph = () => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const savedBooks = getBooks();
+
     setBooks(savedBooks);
-    setIsLoading(false);
   }, []);
   console.log(books);
   if (isLoading) return <Loader />;

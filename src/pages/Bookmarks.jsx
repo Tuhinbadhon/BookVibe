@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BlogCard from "../components/BlogCard";
 import { deleteBlog, getBlogs } from "../utils";
 import EmptyState from "../components/EmptyState";
+import { Helmet } from "react-helmet-async";
 
 const Bookmarks = () => {
   const [blogs, setBlogs] = useState([]);
@@ -26,6 +27,7 @@ const Bookmarks = () => {
   }
   return (
     <section className=" lg:mx-28 lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
+      <Helmet title="Bookmarks" />
       <div className="container  max-w-6xl py-6 mx-auto space-y-6 sm:space-y-12">
         <div className="grid  justify-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (

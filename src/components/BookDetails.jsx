@@ -2,6 +2,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveBook, saveWishBook, getBooks } from "../utils";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const BookDetails = ({ onAddToReadList }) => {
   const handleReadlist = (book) => {
@@ -26,9 +27,10 @@ const BookDetails = ({ onAddToReadList }) => {
   const idInt = parseInt(id);
   const book = books.find((book) => book.bookId === idInt);
   const [tag1, tag2] = book.tags.slice(0, 2);
-
+  console.log(typeof books);
   return (
     <div className="lg:mx-28 lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
+      <Helmet title="Book Details" />
       <div className="lg:flex gap-3 lg:gap-12">
         <div>
           <div className="lg:w-[500px] flex justify-center rounded-2xl border bg-[#1313130D]">

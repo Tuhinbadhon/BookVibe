@@ -2,6 +2,7 @@ import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
 import Loader from "../components/Loader";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
   const blogs = useLoaderData();
@@ -21,6 +22,7 @@ const Blogs = () => {
 
   return (
     <section className="  lg:mx-28 lg:mt-12 mx-4 mb-3 lg:mb-24 mt-3">
+      <Helmet title="Blogs" />
       <div className="container max-w-6xl py-6 mx-auto space-y-6 sm:space-y-12">
         <Link
           to={`/blog/${blogs[0]?.id}`}
